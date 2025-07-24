@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avgmax.user.mapper.UserMapper">
+
+    <insert id="insert" parameterType="com.avgmax.user.domain.User">
+        INSERT INTO USER (USER_ID, NAME, EMAIL, USERNAME, PWD, IMAGE, MONEY, CREATED_AT, UPDATED_AT) 
+        VALUES (#{userId}, #{name}, #{email}, #{username}, #{pwd}, #{image}, #{money}, #{createdAt}, #{updatedAt})
+    </insert>
+    </insert>
+
+    <select id="selectByUsername" parameterType="String" resultType="com.avgmax.user.domain.User">
+        SELECT USER_ID, NAME, EMAIL, USERNAME, PWD, IMAGE, MONEY
+        FROM USER
+        WHERE USERNAME = #{username}
+    </select>
+
+    <select id="selectByUserId" parameterType="String" resultType="com.avgmax.user.domain.User">
+        SELECT USER_ID, NAME, EMAIL, USERNAME, PWD, IMAGE, MONEY
+        FROM USER
+        WHERE USER_ID = #{userId}
+    </select>
+    
+</mapper>
